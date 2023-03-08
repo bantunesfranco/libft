@@ -6,7 +6,7 @@
 /*   By: bfranco <bfranco@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/27 14:20:25 by bfranco       #+#    #+#                 */
-/*   Updated: 2023/03/07 15:45:24 by bfranco       ########   odam.nl         */
+/*   Updated: 2023/03/08 12:22:17 by bfranco       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*chartostr(int c)
 	return (str);
 }
 
-char	*get_str(t_print *tab)
+char	*get_type(t_print *tab)
 {
 	char	*str;
 

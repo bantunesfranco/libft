@@ -6,7 +6,7 @@
 /*   By: bfranco <bfranco@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/04 08:11:44 by bfranco       #+#    #+#                 */
-/*   Updated: 2023/03/08 11:24:48 by bfranco       ########   odam.nl         */
+/*   Updated: 2023/03/08 12:21:43 by bfranco       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,6 +139,6 @@ char	*get_next_line_bonus(int fd);
 int		ft_printf(const char *format, ...);
 
 /*utils*/ /*helper funcs for other major funcs/projects*/
-char	*get_str(t_print *tab);
+char	*get_type(t_print *tab);
 
 #endif
