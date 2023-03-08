@@ -43,7 +43,7 @@ static const char	*parser(t_print *tab, const char *format)
 	int		size;
 
 	tab->type = *format;
-	str = get_str(tab);
+	str = get_type(tab);
 	if (!str)
 		return (NULL);
 	size = ft_strlen(str);
