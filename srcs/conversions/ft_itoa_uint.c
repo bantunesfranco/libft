@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/ft_printf.h"
+
 #include "../../incs/libft.h"
 
 static char	*get_uint(char *str, unsigned int nb, int pos)

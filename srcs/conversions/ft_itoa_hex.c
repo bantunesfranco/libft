@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/ft_printf.h"
 #include "../../incs/libft.h"
 
 static char	*get_hex(char *str, unsigned int nb, int pos, char *base)

@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/ft_printf.h"
 #include "../../incs/libft.h"
 
 static int	get_len(unsigned long int nb)
