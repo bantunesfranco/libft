@@ -6,7 +6,7 @@
 /*   By: bfranco <bfranco@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/11 11:25:56 by bfranco       #+#    #+#                 */
-/*   Updated: 2023/01/02 17:49:14 by bfranco       ########   odam.nl         */
+/*   Updated: 2023/03/08 11:05:43 by bfranco       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
+	if (!new)
+		return ;
 	if (*lst)
 		new->next = *lst;
 	*lst = new;

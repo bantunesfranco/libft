@@ -6,7 +6,7 @@
 /*   By: bfranco <bfranco@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/11 13:03:37 by bfranco       #+#    #+#                 */
-/*   Updated: 2023/01/02 18:10:50 by bfranco       ########   odam.nl         */
+/*   Updated: 2023/03/02 11:48:09 by bfranco       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	if (lst && del)
-	{
-		(*del)(lst->content);
-		free(lst);
-		lst = NULL;
-	}
+	if (lst || del)
+		return ;
+	(*del)(lst->content);
+	free(lst);
+	lst = NULL;
 }
