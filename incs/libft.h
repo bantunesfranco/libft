@@ -6,7 +6,7 @@
 /*   By: bfranco <bfranco@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/04 08:11:44 by bfranco       #+#    #+#                 */
-/*   Updated: 2023/03/07 15:43:23 by bfranco       ########   odam.nl         */
+/*   Updated: 2023/03/08 11:24:48 by bfranco       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <stdio.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10000000
+#  define BUFFER_SIZE 1000
 # endif
 
 typedef struct s_print
