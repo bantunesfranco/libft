@@ -6,7 +6,7 @@
 /*   By: bfranco <bfranco@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/04 08:11:44 by bfranco       #+#    #+#                 */
-/*   Updated: 2023/03/08 12:21:43 by bfranco       ########   odam.nl         */
+/*   Updated: 2023/03/10 15:48:22 by bfranco       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct s_list
 typedef struct s_dlist
 {
 	int				content;
+	int				index;
 	struct s_dlist	*next;
 	struct s_dlist	*prev;
 }	t_dlist;
