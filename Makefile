@@ -57,4 +57,8 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus test
+git:
+	git commit -m "auto commit"
+	git push
+
+.PHONY: all clean fclean re bonus test git
