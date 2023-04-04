@@ -93,10 +93,10 @@ static char	*get_to_read(int fd, char *to_read)
 
 char	*get_next_line(int fd)
 {
-	static char	*to_read[OPEN_MAX];
+	static char	*to_read[4096];
 	char		*line;
 
-	if (fd < 0 || fd > OPEN_MAX || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd > 4096 || BUFFER_SIZE <= 0)
 		return (NULL);
 	if (!to_read[fd])
 	{
