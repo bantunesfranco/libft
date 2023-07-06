@@ -6,7 +6,7 @@
 /*   By: bfranco <bfranco@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/05 13:17:01 by bfranco       #+#    #+#                 */
-/*   Updated: 2023/01/09 15:09:41 by bfranco       ########   odam.nl         */
+/*   Updated: 2023/07/06 15:48:40 by bfranco       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_atoi(const char *str)
 		|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
 		i++;
 	if ((str[i] == '-' || str[i] == '+'))
-	{	
+	{
 		if (str[i] == '-')
 			mult = -1;
 		i++;
