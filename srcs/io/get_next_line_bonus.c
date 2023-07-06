@@ -13,78 +13,55 @@
 #include "../../incs/libft.h"
 #include <limits.h>
 
-static char	*get_new_left(char *to_read)
+static char	*get_new_line(char **to_read)
 {
 	int		i;
-	int		j;
-	char	*new_read;
-
-	if (!to_read)
-		return (NULL);
-	i = 0;
-	j = 0;
-	while (to_read[i] != '\n' && to_read[i])
-		i++;
-	if (ft_strchr(to_read, '\n'))
-		i++;
-	if (!to_read[i])
-		return (free(to_read), NULL);
-	new_read = (char *)malloc(sizeof(char) * (ft_strlen(to_read) - i + 1));
-	if (!new_read)
-		return (free(to_read), NULL);
-	while (to_read[i])
-		new_read[j++] = to_read[i++];
-	new_read[j] = '\0';
-	return (free(to_read), new_read);
-}
-
-static char	*get_new_line(char *to_read)
-{
-	int		i;
-	int		j;
 	char	*line;
+	char	*tmp;
 
-	if (!to_read[0])
+	if (!**to_read)
 		return (NULL);
 	i = 0;
-	while (to_read[i] != '\n' && to_read[i])
+	while ((*to_read)[i] != '\n' && (*to_read)[i])
 		i++;
-	if (ft_strchr(to_read, '\n'))
-		i++;
-	line = (char *)malloc(sizeof(char) * (i + 1));
+	if (ft_strchr(*to_read, '\n'))
+		line = ft_substr(*to_read, 0, i + 1);
+	else
+		line = ft_strdup(*to_read);
 	if (!line)
-		return (free(to_read), NULL);
-	i = 0;
-	j = 0;
-	while (to_read[i] != '\n' && to_read[i])
-		line[i++] = to_read[j++];
-	if (to_read[i] == '\n')
-		line[i++] = to_read[j++];
-	line[i] = '\0';
+		return (NULL);
+	tmp = *to_read;
+	*to_read = ft_substr(*to_read, i + 1, ft_strlen(*to_read) - i);
+	free(tmp);
+	if (!tmp)
+	{
+		*to_read = NULL;
+		return (NULL);
+	}
 	return (line);
 }
 
 static char	*get_to_read(int fd, char *to_read)
 {
-	char	*buff;
+	char	buff[BUFFER_SIZE + 1];
 	int		bytes_read;
+	char	*tmp;
 
 	bytes_read = 1;
 	while (!ft_strchr(to_read, '\n') && bytes_read != 0)
 	{
-		buff = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
-		if (!buff)
-			return (NULL);
+		ft_bzero(buff, BUFFER_SIZE + 1);
 		bytes_read = read(fd, buff, BUFFER_SIZE);
-		if (bytes_read == -1 || read(fd, 0, 0) == -1)
-			return (free(buff), free(to_read), NULL);
-		if (bytes_read == 0)
+		if (read(fd, 0, 0) == -1 || bytes_read == -1)
 		{
-			free(buff);
-			break ;
+			free(to_read);
+			return (NULL);
 		}
-		buff[bytes_read] = '\0';
-		to_read = ft_strjoin_free(to_read, buff);
+		if (bytes_read == 0)
+			break ;
+		tmp = to_read;
+		to_read = ft_strjoin(to_read, buff);
+		free(tmp);
 		if (!to_read)
 			return (NULL);
 	}
@@ -96,22 +73,25 @@ char	*get_next_line(int fd)
 	static char	*to_read[4096];
 	char		*line;
 
-	if (fd < 0 || fd > 4096 || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd > 4096 || BUFFER_SIZE <= 0 \
+	|| BUFFER_SIZE > INT_MAX)
 		return (NULL);
 	if (!to_read[fd])
 	{
-		to_read[fd] = (char *)malloc(1);
+		to_read[fd] = ft_calloc(1, 1);
 		if (!to_read[fd])
 			return (NULL);
-		to_read[fd][0] = '\0';
 	}
 	to_read[fd] = get_to_read(fd, to_read[fd]);
 	if (!to_read[fd])
 		return (NULL);
-	line = get_new_line(to_read[fd]);
-	if (!line && ft_strlen(to_read[fd]))
-		return (free(to_read[fd]), line);
-	to_read[fd] = get_new_left(to_read[fd]);
+	line = get_new_line(&to_read[fd]);
+	if (!line)
+	{
+		free(to_read[fd]);
+		to_read[fd] = NULL;
+		return (NULL);
+	}
 	return (line);
 }
 
