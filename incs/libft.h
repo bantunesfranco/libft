@@ -6,7 +6,7 @@
 /*   By: bfranco <bfranco@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/04 08:11:44 by bfranco       #+#    #+#                 */
-/*   Updated: 2023/03/10 15:48:22 by bfranco       ########   odam.nl         */
+/*   Updated: 2024/04/15 16:31:04 by bfranco       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,6 +138,7 @@ void	ft_error(char *str, int err);
 char	*get_next_line(int fd);
 char	*get_next_line_bonus(int fd);
 int		ft_printf(const char *format, ...);
+int		ft_dprintf(int fd, const char *format, ...);
 
 /*utils*/ /*helper funcs for other major funcs/projects*/
 char	*get_type(t_print *tab);

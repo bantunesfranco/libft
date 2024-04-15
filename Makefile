@@ -30,7 +30,7 @@ SRCS = bonus/ft_lstnew.c bonus/ft_lstadd_front.c bonus/ft_lstsize.c bonus/ft_lst
 		mem/ft_memset.c mem/ft_bzero.c mem/ft_calloc.c mem/ft_free_arr.c\
 		int/ft_intlen.c int/ft_uintlen.c int/ft_hexlen.c\
 		io/ft_putchar_fd.c io/ft_putendl_fd.c io/ft_putnbr_fd.c io/ft_putstr_fd.c\
-		io/get_next_line.c io/get_next_line_bonus.c io/ft_printf.c io/ft_error.c\
+		io/get_next_line.c io/get_next_line_bonus.c io/ft_printf.c io/ft_dprintf.c io/ft_error.c\
 		utils/printf_utils.c\
 
 OBJS =  ${SRCS:%.c=${DIR_O}/%.o}
